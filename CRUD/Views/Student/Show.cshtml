@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Show";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show</h2>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Age</th>
+                <th>Group</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0;i<ViewBag.Students.Count; i++)
+            {
+                <tr>
+                 <td>@ViewBag.Students[i].Name</td>
+                <td>@ViewBag.Students[i].Surname</td>
+                <td>@ViewBag.Students[i].Age</td>
+                <td>@ViewBag.Students[i].Group</td>
+                    <td><button class="btn btn-danger"><a href="@Url.Action("Delete","Student",new {id = i})">Delete</a></button></td>
+                    <td><button class="btn btn-default"><a href="@Url.Action("Update","Student",new {id = i})">Update</a></button></td>
+                
+                </tr>
+               
+
+            }
+        </tbody>
+    </table>
+</div>
+
+
